@@ -3,21 +3,48 @@
     height: 100vh;
     justify-content: center;
     align-items: center;
-    background: purple;
 }
 
 .create-page-background{
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
-    height: clamp(600px, 85vh, 900px);
+    height: clamp(700px, 85vh, 900px);
     width: clamp(350px, 75vw, 1000px);
-    padding-bottom: 5vh;
     padding-top: 5vh;
 }
 
 .create-page-submit-button{
     height: clamp( 30px, 5vh, 50px);
     width: clamp(300px, 70vw, 800px);
+}
+
+#create-stepper{
+    width: clamp(350px, 75vw, 1000px);
+    align-self: flex-start !important;
+}
+
+
+.name-section, .email-section, .dob-section, .pfp-section, .submit-section{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: clamp(400px, 85vh, 600px);
+    width: clamp(300px, 70vw, 800px);
+}
+
+.back-next-buttons{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: min(20px, 2.5%);
+    width: clamp(300px, 70vw, 800px);
+    padding-bottom: 2.5vh;
+}
+
+.back-next-buttons Button{
+    height: clamp(50px, 10vh, 80px);
+    width: 50%;
 }
