@@ -52,10 +52,11 @@ const CustomInput: React.FC<CustomInputProps> = ({ placeholder, pattern, text}) 
                 className='custom-input-label'
                 style={{
                     color: 'red',
-                    display: valid === null ? 'none' : valid ? 'none' : 'inline'
+                    display: valid === null ? 'none' : valid ? 'none' : 'inline',
+                    fontSize: 'clamp(6px, 5vw, 15px)'
                 }}
             >
-                Please Enter {pattern ? 'Valid' : ''} {text}
+                Please Enter {pattern ? 'Valid' : ''} {text.replace('(MM/DD/YYYY)', '')}
             </div>
         </div>
     );

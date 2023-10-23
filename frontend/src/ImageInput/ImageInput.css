@@ -2,20 +2,25 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    height: max(min(60vh, 300px), 300px);
-    width: max(min(75vw, 1000px), 350px);
+    height: min(max(60vh, 350px), 300px);
+    width: min(max(60vh, 350px), 300px);
     position: relative;
     overflow: hidden; 
+    border-radius: 50%; 
 }
 
 #image-input img {
-    max-width: max(min(60vh, 300px), 300px);
-    max-height: max(min(60vh, 300px), 300px);
+    width: 100%;
+    height: 100%;
+    object-fit: cover;  
     border-radius: 50%;  
     display: block;
 }
 
-.image-input-remove-button{
+.image-input-remove-button {
     position: absolute;
     color: red;
+    bottom: 10px; 
+    left: 50%;
+    transform: translateX(-50%); 
 }

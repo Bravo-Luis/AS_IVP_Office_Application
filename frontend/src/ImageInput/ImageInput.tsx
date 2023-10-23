@@ -68,7 +68,8 @@ const ImageInput: React.FC<ImageInputProps> = ({ text }) => {
                 className='custom-input-label'
                 style={{
                     color: 'red',
-                    display: valid === null ? 'none' : valid ? 'none' : 'inline'
+                    display: valid === null ? 'none' : valid ? 'none' : 'inline',
+                    fontSize: 'clamp(6px, 5vw, 15px)'
                 }}
             >
                 Please Upload A {text}

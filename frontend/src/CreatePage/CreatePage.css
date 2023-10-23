@@ -14,6 +14,7 @@
     height: clamp(600px, 85vh, 900px);
     width: clamp(350px, 75vw, 1000px);
     padding-bottom: 5vh;
+    padding-top: 5vh;
 }
 
 .create-page-submit-button{
