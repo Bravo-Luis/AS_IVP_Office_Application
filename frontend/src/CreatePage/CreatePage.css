@@ -1,0 +1,22 @@
+#create-page{
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    background: purple;
+}
+
+.create-page-background{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: clamp(600px, 85vh, 900px);
+    width: clamp(350px, 75vw, 1000px);
+    padding-bottom: 5vh;
+}
+
+.create-page-submit-button{
+    height: clamp( 30px, 5vh, 50px);
+    width: clamp(300px, 70vw, 800px);
+}

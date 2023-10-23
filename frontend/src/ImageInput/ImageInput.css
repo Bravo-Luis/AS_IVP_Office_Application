@@ -1,0 +1,21 @@
+#image-input {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: max(min(60vh, 300px), 300px);
+    width: max(min(75vw, 1000px), 350px);
+    position: relative;
+    overflow: hidden; 
+}
+
+#image-input img {
+    max-width: max(min(60vh, 300px), 300px);
+    max-height: max(min(60vh, 300px), 300px);
+    border-radius: 50%;  
+    display: block;
+}
+
+.image-input-remove-button{
+    position: absolute;
+    color: red;
+}
