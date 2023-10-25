@@ -1,6 +1,5 @@
 import { Paper, Avatar, useTheme, Button } from '@mui/material';
 import './ViewPage.css'
-import { useEffect} from 'react';
 import { useNavigate } from 'react-router-dom';
 import CustomTextField from '../CustomTextField/CustomTextField';
 type CreatePageProps = {
@@ -25,12 +24,6 @@ type CreatePageProps = {
 
     const theme = useTheme();
     const navigate = useNavigate()
-
-    useEffect(() => {
-        if (!name || !email || !date || !image){
-            navigate('/create')
-        }
-      }, []);
 
     return(
     <div id='view-page'>
