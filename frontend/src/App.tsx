@@ -18,7 +18,7 @@ function App() {
   const navigate = useNavigate()
   useEffect(() => {
     if (!name || !email || !date || !image){
-        navigate('/create')
+        navigate('/AS_IVP_Office_Application/create')
     }
   }, []);
 
