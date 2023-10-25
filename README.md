@@ -1,6 +1,6 @@
 # AS IVP Office Application
 
-check out the deployed site here: https://bravo-luis.github.io/AS_IVP_Office_Application
+Check out the deployed site here: https://bravo-luis.github.io/AS_IVP_Office_Application
 
 ## Profiles
 
