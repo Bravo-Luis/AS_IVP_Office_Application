@@ -1,0 +1,13 @@
+{
+  "homepage": "https://Bravo-Luis.github.io/AS_IVP_Office_Application/",
+  "scripts": {
+    "start": "cd frontend && vite",
+    "build": "cd frontend && vite build",
+    "serve": "cd frontend && vite preview",
+    "predeploy": "cd frontend && npm run build",
+    "deploy": "gh-pages -d frontend/dist"
+  },
+  "devDependencies": {
+    "gh-pages": "^6.0.0"
+  }
+}
