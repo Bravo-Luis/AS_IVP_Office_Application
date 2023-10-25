@@ -8,11 +8,12 @@ import {
   Stepper,
   Step,
   StepLabel,
-  TextField,
   Typography,
   useTheme,
   Avatar,
 } from "@mui/material";
+import { useNavigate } from "react-router-dom";
+import CustomTextField from "../CustomTextField/CustomTextField";
 
 type CreatePageProps = {
     name: string;
@@ -21,10 +22,9 @@ type CreatePageProps = {
     setEmail: React.Dispatch<React.SetStateAction<string>>;
     date: string;
     setDate: React.Dispatch<React.SetStateAction<string>>;
-    image: string | null;
-    setImage: React.Dispatch<React.SetStateAction<string | null>>;
+    image: string;
+    setImage: React.Dispatch<React.SetStateAction<string>>;
   };
-  
 
   const CreatePage: React.FC<CreatePageProps> = ({
     name,
@@ -59,8 +59,11 @@ type CreatePageProps = {
     const reader = new FileReader();
 
     reader.onloadend = () => {
-      setImage(reader.result);
-    };
+      if (typeof reader.result === 'string') {
+          setImage(reader.result);
+      }
+  };
+  
 
     if (file) {
       reader.readAsDataURL(file);
@@ -89,10 +92,10 @@ type CreatePageProps = {
             return true
     }
   }
-
+  const navigate = useNavigate()
   return (
     <div id="create-page">
-      <Paper className="create-page-background" elevation={5}>
+      <Paper className="create-page-background" elevation={0}>
 
         {/* STEPPER */}
 
@@ -109,27 +112,15 @@ type CreatePageProps = {
         {currentStep == 0 && (
           <div className="name-section">
             <br />
-            <TextField
+            <CustomTextField
               id="name-text-field"
-              sx={{
-                justifySelf: "flex-start",
-              }}
               label="What should we call you?"
-              fullWidth
-              helperText="Please enter your name"
+              helperText="Please enter your name."
               variant="standard"
               value={name}
-              onChange={(e) => setName(e.target.value)}
-              InputProps={{
-                sx: {
-                  fontSize: theme.typography.h3.fontSize,
-                },
-              }}
-              InputLabelProps={{
-                sx: {
-                  fontSize: theme.typography.h5.fontSize,
-                },
-              }}
+              setValue={setName}
+              inputFontSize={theme.typography.h3.fontSize}
+              labelFontSize={theme.typography.h5.fontSize}
             />
           </div>
         )}
@@ -139,33 +130,20 @@ type CreatePageProps = {
         {currentStep == 1 && (
           <div className="email-section">
             <br />
-            <TextField
+            <CustomTextField
               id="email-text-field"
-              sx={{
-                justifySelf: "flex-start",
-              }}
               label="How can we reach you?"
               helperText="Please enter your email address"
               variant="standard"
-              fullWidth
-              error={checkEmail}
-              color={!checkEmail && email ? "success" : "primary"}
-              type="email"
               value={email}
-              onChange={(e) => {
-                setEmail(e.target.value);
-                setCheckEmail(!validateEmail(e.target.value));
-              }}
-              InputProps={{
-                sx: {
-                  fontSize: theme.typography.h3.fontSize,
-                },
-              }}
-              InputLabelProps={{
-                sx: {
-                  fontSize: theme.typography.h5.fontSize,
-                },
-              }}
+              setValue={setEmail}
+              inputFontSize={theme.typography.h3.fontSize}
+              labelFontSize={theme.typography.h5.fontSize}
+              checkValue={setCheckEmail}
+              validateValue={validateEmail}
+              type="email"
+              color={!checkEmail && email ? "success" : "primary"}
+              error={checkEmail}
             />
           </div>
         )}
@@ -176,34 +154,21 @@ type CreatePageProps = {
           <div className="dob-section">
             <br />
 
-            <TextField
+            <CustomTextField
               id="dob-text-field"
-              sx={{
-                justifySelf: "flex-start",
-              }}
               label="When's your birthday?"
               helperText="Please enter your date of birth"
-              fullWidth
               variant="standard"
-              error={checkDate}
-              color={!checkDate && date ? "success" : "primary"}
-              type="date"
               value={date}
-              onChange={(e) => {
-                setDate(e.target.value);
-                setCheckDate(!validateDob(e.target.value));
-              }}
-              InputProps={{
-                sx: {
-                  fontSize: theme.typography.h3.fontSize,
-                },
-              }}
-              InputLabelProps={{
-                sx: {
-                  fontSize: theme.typography.h6.fontSize,
-                },
-                shrink: true,
-              }}
+              setValue={setDate}
+              inputFontSize={theme.typography.h3.fontSize}
+              labelFontSize={theme.typography.h6.fontSize}
+              checkValue={setCheckDate}
+              validateValue={validateDob}
+              type="date"
+              color={!checkDate && date ? "success" : "primary"}
+              error={checkDate}
+              labelShrink={true}
             />
           </div>
         )}
@@ -254,59 +219,31 @@ type CreatePageProps = {
               />
             )}
             <br />
-
-            <TextField
-              label={"Name"}
+            <CustomTextField 
+              label="Name"
               defaultValue={name}
-              fullWidth
-              InputLabelProps={{
-                sx: {
-                  fontSize: theme.typography.h6.fontSize,
-                },
-                shrink: true,
-              }}
-              InputProps={{
-                readOnly: true,
-                sx: {
-                  fontSize: theme.typography.h5.fontSize,
-                },
-              }}
+              inputFontSize={theme.typography.h5.fontSize}
+              labelFontSize={theme.typography.h6.fontSize}
+              labelShrink={true}
+              readOnly={true}
             />
             <br />
-            <TextField
-              label={"Email"}
+            <CustomTextField 
+              label="Email"
               defaultValue={email}
-              fullWidth
-              InputLabelProps={{
-                sx: {
-                  fontSize: theme.typography.h6.fontSize,
-                },
-                shrink: true,
-              }}
-              InputProps={{
-                readOnly: true,
-                sx: {
-                  fontSize: theme.typography.h5.fontSize,
-                },
-              }}
+              inputFontSize={theme.typography.h5.fontSize}
+              labelFontSize={theme.typography.h6.fontSize}
+              labelShrink={true}
+              readOnly={true}
             />
             <br />
-            <TextField
-              label={"Date of Birth"}
+            <CustomTextField 
+              label="Date of Birth"
               defaultValue={date}
-              fullWidth
-              InputLabelProps={{
-                sx: {
-                  fontSize: theme.typography.h6.fontSize,
-                },
-                shrink: true,
-              }}
-              InputProps={{
-                readOnly: true,
-                sx: {
-                  fontSize: theme.typography.h5.fontSize,
-                },
-              }}
+              inputFontSize={theme.typography.h5.fontSize}
+              labelFontSize={theme.typography.h6.fontSize}
+              labelShrink={true}
+              readOnly={true}
             />
           </div>
         )}
@@ -335,6 +272,8 @@ type CreatePageProps = {
             onClick={() => {
               if (currentStep < 4) {
                 setCurrentStep(currentStep + 1);
+              } else {
+                navigate('/view')
               }
             }}
           >
