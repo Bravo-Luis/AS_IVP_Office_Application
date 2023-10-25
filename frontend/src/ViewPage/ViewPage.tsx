@@ -79,7 +79,7 @@ type CreatePageProps = {
               variant="outlined"
               aria-required
               onClick={() => {
-                navigate('/create')
+                navigate('/AS_IVP_Office_Application/create')
               }}
             >
               Edit

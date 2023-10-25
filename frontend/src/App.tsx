@@ -36,8 +36,8 @@ theme = responsiveFontSizes(theme);
     <ThemeProvider theme={theme}>
       <Paper elevation={0} sx={{ width: '100vw', height: '100vh', position: 'absolute', zIndex: '-1' }}></Paper>
       <Routes>
-        <Route path='/create' element={<CreatePage name={name} setName={setName} email={email} setEmail={setEmail} date={date} setDate={setDate} image={image} setImage={setImage}/>}/>
-        <Route path='/view' element={<ViewPage name={name} setName={setName} email={email} setEmail={setEmail} date={date} setDate={setDate} image={image} setImage={setImage}/>}/>
+        <Route path='/AS_IVP_Office_Application/create' element={<CreatePage name={name} setName={setName} email={email} setEmail={setEmail} date={date} setDate={setDate} image={image} setImage={setImage}/>}/>
+        <Route path='/AS_IVP_Office_Application/view' element={<ViewPage name={name} setName={setName} email={email} setEmail={setEmail} date={date} setDate={setDate} image={image} setImage={setImage}/>}/>
       </Routes>
     </ThemeProvider>
   )

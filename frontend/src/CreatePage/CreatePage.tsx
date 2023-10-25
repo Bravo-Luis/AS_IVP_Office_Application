@@ -273,7 +273,7 @@ type CreatePageProps = {
               if (currentStep < 4) {
                 setCurrentStep(currentStep + 1);
               } else {
-                navigate('/view')
+                navigate('/AS_IVP_Office_Application/view')
               }
             }}
           >
